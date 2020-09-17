@@ -23,15 +23,41 @@ document.querySelector(".btn-roll").addEventListener("click" , function() {
 
     var dice = Math.floor((Math.random() * 6) + 1);
     
+    if (dice!==1)
+        {
+            // add the random score to the current score box
     
-    // add the random score to the current score box
+            roundScore += dice;
+            document.getElementById("current-" + activePlayer).textContent  = roundScore;
+
+            // show thw dice image acccording to the score.
+
+            document.querySelector(".dice").style.display = "block";
+            document.querySelector(".dice").src = "dice-" + dice + ".png";  
+            
+        }
     
-    roundScore += dice;
-    document.getElementById("current-" + activePlayer).textContent  = roundScore;
+    else
+        {   
+            // current score will be zero
+            document.getElementById("current-" + activePlayer).textContent  = 0;
+            
+            // dice will be hidden
+            document.querySelector(".dice").style.display = "none";
+            
+            // active player will be changed
+            nextPlayer();
+            
+        }
     
-    // show thw dice image acccording to the score.
-    
-    document.querySelector(".dice").style.display = "block";
-    document.querySelector(".dice").src = "dice-" + dice + ".png";
     
 });
+
+function nextPlayer() 
+    {
+        activePlayer = activePlayer - 1;
+        
+        // active class will be toggled
+        document.querySelector("player-0-panel").classList.toggle("active");
+        document.querySelector("player-1-panel").classList.toggle("active");
+    }
