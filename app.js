@@ -101,6 +101,12 @@ function init() {
     roundScore = 0;
     activePlayer = 0; // 0 for player1 , 1 for player2.
     gamePlaying = true;
+    
+    // asking the users for their name
+    //var player1 = prompt("Enter your name , player1?");
+    //var player2 = prompt("Enter your name , player2?");
+    //document.getElementById("name-0").textContent = prompt("Enter your name , player1?");
+    //document.getElementById("name-1").textContent = prompt("Enter your name , player2?");
 
     // setting all the score to zero at the beginning
     document.getElementById("score-0").textContent = 0;
