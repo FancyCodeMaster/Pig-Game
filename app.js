@@ -57,41 +57,44 @@ function nextPlayer()
 
 document.querySelector(".btn-hold").addEventListener("click" , function() {
     
-    // 1. Update current score to the Global score
-    scores[activePlayer] += roundScore;
-    document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
-
-
-    // 2. Check if the player has won the game
-
-    if (scores[activePlayer] >=askScore)
+    if (gamePlaying)
         {
-            //set the gamePlaying to false
-            gamePlaying = false;
-            
-            // Remove the active class
-            document.querySelector(".player-0-panel").classList.remove("active");
-            document.querySelector(".player-1-panel").classList.remove("active");
-
-            // Add the winner class on the active player panel
-            document.querySelector(".player-" + (1-activePlayer) + "-panel").classList.remove("winner");
-            document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
-
-            // remove the active player name and just show the message winner
-            document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
-
-            // hide the dice
-            document.querySelector(".dice").style.display = "none";
+            // 1. Update current score to the Global score
+            scores[activePlayer] += roundScore;
+            document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
 
 
+            // 2. Check if the player has won the game
 
+            if (scores[activePlayer] >=askScore)
+                {
+                    //set the gamePlaying to false
+                    gamePlaying = false;
+
+                    // Remove the active class
+                    document.querySelector(".player-0-panel").classList.remove("active");
+                    document.querySelector(".player-1-panel").classList.remove("active");
+
+                    // Add the winner class on the active player panel
+                    document.querySelector(".player-" + (1-activePlayer) + "-panel").classList.remove("winner");
+                    document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
+
+                    // remove the active player name and just show the message winner
+                    document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
+
+                    // hide the dice
+                    document.querySelector(".dice").style.display = "none";
+
+
+
+                }
+            else
+                {
+                    // 3. Change the active player and toggle the active player
+                    nextPlayer();   
+                }   
+       
         }
-    else
-        {
-            // 3. Change the active player and toggle the active player
-            nextPlayer();   
-        }   
-    
 });
 
 document.querySelector(".btn-new").addEventListener("click" , init);
