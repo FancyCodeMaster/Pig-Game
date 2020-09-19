@@ -1,5 +1,5 @@
 
-var scores , roundScore , activePlayer , gamePlaying;
+var scores , roundScore , activePlayer , gamePlaying , player1 , player2 , askScore;
 
 init();
 
@@ -64,7 +64,7 @@ document.querySelector(".btn-hold").addEventListener("click" , function() {
 
     // 2. Check if the player has won the game
 
-    if (scores[activePlayer] >=10)
+    if (scores[activePlayer] >=askScore)
         {
             //set the gamePlaying to false
             gamePlaying = false;
@@ -103,10 +103,10 @@ function init() {
     gamePlaying = true;
     
     // asking the users for their name
-    //var player1 = prompt("Enter your name , player1?");
-    //var player2 = prompt("Enter your name , player2?");
-    //document.getElementById("name-0").textContent = prompt("Enter your name , player1?");
-    //document.getElementById("name-1").textContent = prompt("Enter your name , player2?");
+    player1 = prompt("Enter your name , player1?");
+    player2 = prompt("Enter your name , player2?");
+    document.getElementById("name-0").textContent = prompt("Enter your name , player1?");
+    document.getElementById("name-1").textContent = prompt("Enter your name , player2?");
 
     // setting all the score to zero at the beginning
     document.getElementById("score-0").textContent = 0;
@@ -127,6 +127,9 @@ function init() {
     document.querySelector(".player-1-panel").classList.remove("winner");
     document.getElementById("name-0").textContent = "Player 1";
     document.getElementById("name-1").textContent = "Player 2";
+    
+    // Asking the user for the maximum score to be put
+    askScore = parseInt("Enter the maximum score to be added?");
 }
 
 
