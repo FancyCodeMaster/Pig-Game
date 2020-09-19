@@ -103,8 +103,6 @@ function init() {
     gamePlaying = true;
     
     // asking the users for their name
-    player1 = prompt("Enter your name , player1?");
-    player2 = prompt("Enter your name , player2?");
     document.getElementById("name-0").textContent = prompt("Enter your name , player1?");
     document.getElementById("name-1").textContent = prompt("Enter your name , player2?");
 
@@ -129,7 +127,7 @@ function init() {
     document.getElementById("name-1").textContent = "Player 2";
     
     // Asking the user for the maximum score to be put
-    askScore = parseInt("Enter the maximum score to be added?");
+    askScore = parseInt(prompt("Enter the maximum score to be added?"));
 }
 
 
